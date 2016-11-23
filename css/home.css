@@ -1,0 +1,194 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,700);
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+@import url(bootstrap-theme.css);
+@import url(bootstrap.css);
+@import url(style.css);
+@import url(font-awesome.css);
+
+
+
+
+/* Give the player a height & width of 0. Otherwise the player is visible on mobile devices (tested on iPhone 5). */
+
+#player {
+  height: 0;
+  width: 0
+}
+
+/* Apologies for the large base64 image file */
+
+.speaker {
+  background:black;
+  background-repeat: no-repeat;
+  background-size: 200%;
+  background-position: 100% 0;
+  height: 64px;
+  width: 60px;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  top: 150px;
+  left: 200px;
+  display: block;
+}
+
+.speakerplay {
+  background-position: 0 0;
+}
+
+
+
+
+
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1){
+.moving-zone {
+    position: absolute;
+    top:50%; left:50%;
+    width:500px; height:120px;
+    margin: -250px 0 0 -250px;
+    perspective: 800px;
+}
+.popup {
+    position: absolute;
+    width:500px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px 0 20px 0;
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+.popup:before {
+    content: '';
+    position: absolute;
+    left:5%; top:5%;
+    width:90%; height:90%;
+    border-radius: inherit;
+    background: none;
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    transform: translateZ(-100px);
+}
+.popup-content {
+    background: none;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.popup-text {
+    color: white;
+    font-family:'Gloria Hallelujah', cursive;
+    font-size: 50px;
+    line-height: 30px;
+    font-weight: 100;
+    text-align: center;
+    transform: translateZ(15px);
+}
+.popup-text b {
+    color: coral;
+    font-weight: 300;
+}
+}
+
+
+@media only screen and (min-device-width: 374px) and (max-device-width: 736px)
+{
+    .moving-zone {
+        position: absolute;
+        top:50%; left:50%;
+        width:400px; height:120px;
+        margin: -250px 0 0 -250px;
+        perspective: 800px;
+    }
+    .popup {
+        position: absolute;
+        width:500px;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 20px 0 20px 0;
+        cursor: pointer;
+        transform-style: preserve-3d;
+    }
+    .popup:before {
+        content: '';
+        position: absolute;
+        left:5%; top:5%;
+        width:90%; height:90%;
+        border-radius: inherit;
+        background: none;
+        box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        transform: translateZ(-100px);
+    }
+    .popup-content {
+        background: none;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    .popup-text {
+        color: white;
+        font-family:'Gloria Hallelujah', cursive;
+        font-size: 50px;
+        line-height: 30px;
+        font-weight: 100;
+        text-align: center;
+        margin-bottom: 100px;
+        padding-left: 10%;
+        transform: translateZ(15px);
+    }
+    .popup-text b {
+        color: coral;
+        font-weight: 300;
+    }
+}
+
+@media only screen and (min-device-width: 310px) and (max-device-width: 370px)
+{
+    .moving-zone {
+        position: absolute;
+        top:20%; left:-10%;
+        width:400px; height:120px;
+        perspective: 100px;
+    }
+    .popup {
+        position: absolute;
+        width:500px;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 20px 0 20px 0;
+        cursor: pointer;
+        transform-style: preserve-3d;
+    }
+    .popup:before {
+        content: '';
+        position: absolute;
+        left:5%; top:5%;
+        width:90%; height:90%;
+        border-radius: inherit;
+        background: none;
+        box-shadow: 0 0 0 0 rgba(0,0,0,0);
+        transform: translateZ(-100px);
+    }
+    .popup-content {
+        background: none;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+    .popup-text {
+        color: white;
+        font-family:'Gloria Hallelujah', cursive;
+        font-size: 40px;
+        line-height: 30px;
+        font-weight: 100;
+        padding-left: 5%;
+        text-align: center;
+        margin-bottom: 40px;
+        transform: translateZ(15px);
+    }
+    .popup-text b {
+        color: coral;
+        font-weight: 300;
+    }
+}

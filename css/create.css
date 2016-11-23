@@ -1,0 +1,720 @@
+ /*custom font*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
+/*basic reset*/
+* {margin: 0; padding: 0;}
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1){
+
+
+	#icon {
+	    width: 100%;
+	    height: 100%;
+	    display: -webkit-flex; /* Safari */
+		padding-top: 1%;
+	}
+
+	#icon div:nth-of-type(1) {flex-grow: 2;}
+	#icon div:nth-of-type(2) {flex-grow: 1;}
+	#icon div:nth-of-type(3) {flex-grow: 1;}
+
+
+	html {
+		height: 100%;
+		background: 
+			linear-gradient(190deg, rgba(36, 17, 42, 1), rgba(111, 16, 69, 1), rgba(226, 123, 83, 1));
+		background-position: right bottom, left top;
+	}
+
+	body {
+		font-family: montserrat, arial, verdana;
+		background: linear-gradient(rgba(50, 18, 53, 0.1), rgba(226, 123, 83, 0));
+		
+	}
+	/*form styles*/
+	#msform {
+		width: 400px;
+		margin: 50px auto;
+		text-align: center;
+		position: relative;
+	}
+
+	#msform ul{
+		width: 600px;
+		margin-left: -100px;
+		text-align: center;
+		position: relative;
+		padding-top: -20px;
+	}
+
+	#msform fieldset {
+		background: white;
+		border: 0 none;
+		border-radius: 5px;
+		box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+		padding: 20px 30px;
+		box-sizing: border-box;
+		width: 80%;
+		margin: 0 10%;
+		
+		/*stacking fieldsets above each other*/
+		position: relative;
+	}
+	/*Hide all except first fieldset*/
+	#msform fieldset:not(:first-of-type) {
+		display: none;
+	}
+	/*inputs*/
+	#msform input, #msform textarea{
+		padding: 12px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		margin-bottom: 10px;
+		width: 100%;
+		box-sizing: border-box;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 13px;
+		background: linear-gradient(rgba(196, 95, 0, 0.1), rgba(185, 99, 100, 0));
+	}
+	#msform span{
+		padding: 15px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 13px;
+	}
+
+	#msform label{
+		padding: 10px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 13px;
+	}
+	/*buttons*/
+	#msform .action-button {
+		width: 100px;
+		background: rgb(93, 183, 213);
+		font-weight: bold;
+		color: white;
+		border: 0 none;
+		border-radius: 1px;
+		cursor: pointer;
+		padding: 10px 5px;
+		margin: 10px 5px;
+	}
+	#msform .action-button:hover, #msform .action-button:focus {
+		box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(93, 183, 213);
+	}
+
+		/* The Modal (background) */
+	#msform .modal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    left: 0;
+	    top: 0;
+	    width: 100%; /* Full width */
+	    height: 100%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content/Box */
+	#msform .modal-content {
+	    background-color: #fefefe;
+	    margin: 18% auto; /* 15% from the top and centered */
+	    padding: 20px;
+	    border: 1px solid #888;
+	    width: 25%;
+	    height: 20%; /* Could be more or less, depending on screen size */
+	}
+
+	/* The Close Button */
+	#msform .close {
+	    color: white;
+	    float: none;
+	    opacity: 1;
+	    font-size: 13px;
+	    width: 25%;
+	    padding-left: 13px;
+	    background: rgb(93, 183, 213);
+	    text-shadow: 0px 0px 0;
+	}
+
+	#msform .close:hover, .close:focus {
+	    text-decoration: none;
+	    cursor: pointer;
+	    box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(93, 183, 213);
+	}
+
+
+	/*headings*/
+	.fs-title {
+		font-size: 15px;
+		margin-top: 5px;
+		text-transform: uppercase;
+		color: #2C3E50;
+		margin-bottom: 15px;
+	}
+	.fs-subtitle {
+		font-weight: normal;
+		font-size: 13px;
+		color: #666;
+		margin-bottom: 20px;
+	}
+	/*progressbar*/
+	#progressbar {
+		margin-bottom: 40px;
+		overflow: hidden;
+		/*CSS counters to number the steps*/
+		counter-reset: step;
+		/*display: flex;
+		justify-content: center;
+		align-items: flex-start;*/
+	}
+	#progressbar li {
+		list-style-type: none;
+
+		color:rgb(193,193,193);
+		text-transform: uppercase;
+		font-size: 9px;
+		width: 25.00%;
+		float: left;
+		position: relative;
+
+
+	}
+	#progressbar li:before {
+		content: counter(step);
+		counter-increment: step;
+		width: 20px;
+		line-height: 20px;
+		display: block;
+		font-size: 12px;
+		color: #333;
+		background: white;
+		border-radius: 3px;
+		margin: 0 auto 5px auto;
+	}
+	/*progressbar connectors*/
+	#progressbar li:after {
+		content: '';
+		width: 100%;
+		height: 2px;
+		background: white;
+		position: absolute;
+		left: -50%;
+		top: 9px;
+		z-index: -1; /*put it behind the numbers*/
+	}
+	#progressbar li:first-child:after {
+		/*connector not needed before the first step*/
+		content: none; 
+	}
+	/*marking active/completed steps green*/
+	/*The number of the step and the connector before it = green*/
+	#progressbar li.active:before,  #progressbar li.active:after{
+		background: rgb(93, 183, 213);
+		color: white;
+	}
+}
+
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 736px){
+	#icon {
+	    width: 100%;
+	    height: 100%;
+	    display: -webkit-flex; /* Safari */
+	    align-items: flex-start;
+		padding-top: 18%;
+	}
+
+	#icon div:nth-of-type(1) {flex-grow: 2;}
+	#icon div:nth-of-type(2) {flex-grow: 1;}
+	#icon div:nth-of-type(3) {flex-grow: 1;}
+
+	.icon {
+		height: 250px;
+		width: 350px;
+		margin-bottom: 50px;
+	}
+
+	html {
+		height: 100%;
+		background: 
+			linear-gradient(190deg, rgba(36, 17, 42, 1), rgba(111, 16, 69, 1), rgba(226, 123, 83, 1));
+		background-position: right bottom, left top;
+	}
+
+	body {
+		font-family: montserrat, arial, verdana;
+		background: linear-gradient(rgba(50, 18, 53, 0.1), rgba(226, 123, 83, 0));
+		
+	}
+	/*form styles*/
+	#msform {
+		width: 900px;
+		margin: 50px auto;
+		text-align: center;
+		position: relative;
+	}
+
+	#msform ul{
+		width: 1000px;
+		margin-left: -50px;
+		text-align: center;
+		position: relative;
+		padding-top: -20px;
+	}
+
+	#msform fieldset {
+		background: white;
+		border: 0 none;
+		border-radius: 10px;
+		box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+		padding: 20px 30px;
+		box-sizing: border-box;
+		width: 80%;
+		margin: 0 10%;
+		padding-left: 50px;
+		padding-right: 50px;
+		/*stacking fieldsets above each other*/
+		position: relative;
+	}
+	/*Hide all except first fieldset*/
+	#msform fieldset:not(:first-of-type) {
+		display: none;
+	}
+	/*inputs*/
+	#msform input{
+		padding: 12px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		margin-bottom: 40px;
+		width: 100%;
+		box-sizing: border-box;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 25px;
+		background: linear-gradient(rgba(196, 95, 0, 0.1), rgba(185, 99, 100, 0));
+	}
+	#msform span{
+		padding: 10px 10px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 25px;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		display: inline-block;
+	}
+
+	#msform label{
+		padding: 10px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 30px;
+	}
+	.form-control {
+		font-size: 20px;
+		margin-bottom: 40px;
+		margin-top: 20px;
+	}
+	/*buttons*/
+	#msform .action-button {
+		width: 200px;
+		background: rgb(93, 183, 213);
+		font-weight: bold;
+		color: white;
+		border: 0 none;
+		border-radius: 8px;
+		cursor: pointer;
+		padding: 15px 20px;
+		margin: 10px 40px;
+		margin-bottom: 40px;
+	}
+	#msform .action-button:hover, #msform .action-button:focus {
+		box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(93, 183, 213);
+	}
+	/*headings*/
+	.fs-title {
+		font-size: 40px;
+		margin-top: 70px;
+		text-transform: uppercase;
+		color: #2C3E50;
+		margin-bottom: 40px;
+
+	}
+	.fs-subtitle {
+		font-weight: normal;
+		font-size: 25px;
+		color: #666;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+	/*progressbar*/
+	#progressbar {
+		margin-bottom: 30px;
+		overflow: hidden;
+		/*CSS counters to number the steps*/
+		counter-reset: step;
+		
+		padding-left: -100px;
+		padding-right: 0px;
+		padding-bottom: 50px;
+	}
+	#progressbar li {
+		list-style-type: none;
+
+		color:rgb(193,193,193);
+		text-transform: uppercase;
+		font-size: 21px;
+		width: 25.00%;
+		float: left;
+		position: relative;
+		display: inline-block;
+
+	}
+	#progressbar li:before {
+		content: counter(step);
+		counter-increment: step;
+		width: 40px;
+		line-height: 40px;
+		display: block;
+		font-size: 22px;
+		color: #333;
+		background: white;
+		border-radius: 5px;
+		margin: 0 auto 5px auto;
+	}
+	/*progressbar connectors*/
+	#progressbar li:after {
+		content: '';
+		padding-left: 100px;
+		width: 100%;
+		height: 3px;
+		background: white;
+		position: absolute;
+		left: -50%;
+		top: 20px;
+		z-index: -1; /*put it behind the numbers*/
+	}
+	#progressbar li:first-child:after {
+		/*connector not needed before the first step*/
+		content: none; 
+	}
+	/*marking active/completed steps green*/
+	/*The number of the step and the connector before it = green*/
+	#progressbar li.active:before,  #progressbar li.active:after{
+		background: rgb(93, 183, 213);
+		color: white;
+	}
+
+		/* The Modal (background) */
+	#msform .modal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    left: -75%;
+	    top: 5%;
+	    width: 250%; /* Full width */
+	    height: 120%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	#msform p {
+		margin: 0 0 10px;
+    	font-size: 30px;
+    	line-height: 200%;
+    	padding-top: 40px;
+    	padding-bottom: 40px;
+	}
+
+	/* Modal Content/Box */
+	#msform .modal-content {
+	    background-color: #fefefe;
+	    margin: 18% auto; /* 15% from the top and centered */
+	    padding: 20px;
+	    border: 1px solid #888;
+	    width: 25%;
+	    height: 18%; /* Could be more or less, depending on screen size */
+	}
+
+	/* The Close Button */
+	#msform .close {
+	    color: white;
+	    float: none;
+	    opacity: 1;
+	    font-size: 25px;
+	    width: 30%;
+	    height: 18%;
+	    padding-left: 13px;
+	    background: rgb(93, 183, 213);
+	    text-shadow: 0px 0px 0;
+	}
+
+	#msform .close:hover, .close:focus {
+	    text-decoration: none;
+	    cursor: pointer;
+	    box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(93, 183, 213);
+	}
+
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 736px){
+	#icon {
+	    width: 100%;
+	    height: 100%;
+	    display: -webkit-flex; /* Safari */
+	    align-items: flex-start;
+		padding-top: 18%;
+	}
+
+	#icon div:nth-of-type(1) {flex-grow: 2;}
+	#icon div:nth-of-type(2) {flex-grow: 1;}
+	#icon div:nth-of-type(3) {flex-grow: 1;}
+
+	.icon {
+		height: 250px;
+		width: 350px;
+		margin-bottom: 50px;
+	}
+
+	html {
+		height: 100%;
+		background: 
+			linear-gradient(190deg, rgba(36, 17, 42, 1), rgba(111, 16, 69, 1), rgba(226, 123, 83, 1));
+		background-position: right bottom, left top;
+	}
+
+	body {
+		font-family: montserrat, arial, verdana;
+		background: linear-gradient(rgba(50, 18, 53, 0.1), rgba(226, 123, 83, 0));
+		
+	}
+	/*form styles*/
+	#msform {
+		width: 900px;
+		margin: 50px auto;
+		text-align: center;
+		position: relative;
+	}
+
+	#msform ul{
+		width: 1000px;
+		margin-left: -50px;
+		text-align: center;
+		position: relative;
+		padding-top: -20px;
+	}
+
+	#msform fieldset {
+		background: white;
+		border: 0 none;
+		border-radius: 10px;
+		box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+		padding: 20px 30px;
+		box-sizing: border-box;
+		width: 80%;
+		margin: 0 10%;
+		padding-left: 50px;
+		padding-right: 50px;
+		/*stacking fieldsets above each other*/
+		position: relative;
+	}
+	/*Hide all except first fieldset*/
+	#msform fieldset:not(:first-of-type) {
+		display: none;
+	}
+	/*inputs*/
+	#msform input{
+		padding: 12px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		margin-bottom: 40px;
+		width: 100%;
+		box-sizing: border-box;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 25px;
+		background: linear-gradient(rgba(196, 95, 0, 0.1), rgba(185, 99, 100, 0));
+	}
+	#msform span{
+		padding: 10px 10px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 25px;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		display: inline-block;
+	}
+
+	#msform label{
+		padding: 10px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 30px;
+	}
+	.form-control {
+		font-size: 20px;
+		margin-bottom: 40px;
+		margin-top: 20px;
+	}
+	/*buttons*/
+	#msform .action-button {
+		width: 200px;
+		background: rgb(93, 183, 213);
+		font-weight: bold;
+		color: white;
+		border: 0 none;
+		border-radius: 8px;
+		cursor: pointer;
+		padding: 15px 20px;
+		margin: 10px 40px;
+		margin-bottom: 40px;
+	}
+	#msform .action-button:hover, #msform .action-button:focus {
+		box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(93, 183, 213);
+	}
+	/*headings*/
+	.fs-title {
+		font-size: 40px;
+		margin-top: 70px;
+		text-transform: uppercase;
+		color: #2C3E50;
+		margin-bottom: 40px;
+
+	}
+	.fs-subtitle {
+		font-weight: normal;
+		font-size: 25px;
+		color: #666;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+	/*progressbar*/
+	#progressbar {
+		margin-bottom: 30px;
+		overflow: hidden;
+		/*CSS counters to number the steps*/
+		counter-reset: step;
+		
+		padding-left: -100px;
+		padding-right: 0px;
+		padding-bottom: 50px;
+	}
+	#progressbar li {
+		list-style-type: none;
+
+		color:rgb(193,193,193);
+		text-transform: uppercase;
+		font-size: 21px;
+		width: 25.00%;
+		float: left;
+		position: relative;
+		display: inline-block;
+
+	}
+	#progressbar li:before {
+		content: counter(step);
+		counter-increment: step;
+		width: 40px;
+		line-height: 40px;
+		display: block;
+		font-size: 22px;
+		color: #333;
+		background: white;
+		border-radius: 5px;
+		margin: 0 auto 5px auto;
+	}
+	/*progressbar connectors*/
+	#progressbar li:after {
+		content: '';
+		padding-left: 100px;
+		width: 100%;
+		height: 3px;
+		background: white;
+		position: absolute;
+		left: -50%;
+		top: 20px;
+		z-index: -1; /*put it behind the numbers*/
+	}
+	#progressbar li:first-child:after {
+		/*connector not needed before the first step*/
+		content: none; 
+	}
+	/*marking active/completed steps green*/
+	/*The number of the step and the connector before it = green*/
+	#progressbar li.active:before,  #progressbar li.active:after{
+		background: rgb(93, 183, 213);
+		color: white;
+	}
+
+		/* The Modal (background) */
+	#msform .modal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    left: -75%;
+	    top: 5%;
+	    width: 250%; /* Full width */
+	    height: 120%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+	#msform p {
+		margin: 0 0 10px;
+    	font-size: 30px;
+    	line-height: 200%;
+    	padding-top: 40px;
+    	padding-bottom: 40px;
+	}
+
+	/* Modal Content/Box */
+	#msform .modal-content {
+	    background-color: #fefefe;
+	    margin: 18% auto; /* 15% from the top and centered */
+	    padding: 20px;
+	    border: 1px solid #888;
+	    width: 25%;
+	    height: 18%; /* Could be more or less, depending on screen size */
+	}
+
+	/* The Close Button */
+	#msform .close {
+	    color: white;
+	    float: none;
+	    opacity: 1;
+	    font-size: 25px;
+	    width: 30%;
+	    height: 18%;
+	    padding-left: 13px;
+	    background: rgb(93, 183, 213);
+	    text-shadow: 0px 0px 0;
+	}
+
+	#msform .close:hover, .close:focus {
+	    text-decoration: none;
+	    cursor: pointer;
+	    box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(93, 183, 213);
+	}
+
+}
+
+
+

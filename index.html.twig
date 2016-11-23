@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Chat!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-6">
+                    <textarea id="gg" class="form-control" rows="3" placeholder="Hi!" required></textarea>
+                </div>
+                
+            </div>
+        </div>
+        <button onclick="send()">Send</button>
+        <div id = 'addtext'>
+        </div>
+        
+        
+        {% endblock %}
+        {% block javascripts %}
+        <script src="//cdn.ably.io/lib/ably.min.js"></script>
+        <script type="text/javascript">
+            apiKey = 'xVLyHw.2-AYkg:RgGgAT6jA7id3iz5';
+            var realtime = new Ably.Realtime(apiKey);
+            var channel = realtime.channels.get("sport");
+            channel.subscribe(function(msg) {
+                //alert("Received: " + JSON.stringify(msg.data));
+                document.getElementById('addtext').innerHTML += JSON.stringify(msg.data.team)+"<br>"+msg+"<br>";
+            });
+
+            function send(){
+                ss = document.getElementById('gg').value;
+                document.getElementById('gg').value = "";
+                channel.publish("update", { "team": ss});
+            }
+        </script>
+        {% endblock %}
+    </body>
+</html>

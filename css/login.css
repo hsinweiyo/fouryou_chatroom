@@ -1,0 +1,298 @@
+/*custom font*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css);
+@import url('https://fonts.googleapis.com/css?family=Lato:400,300,700,900');
+@import url('https://fonts.googleapis.com/css?family=Eczar');
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1){
+	/*basic reset*/
+	* {margin: 0; padding: 0;}
+
+	#icon {
+	    width: 100%;
+	    height: 100%;
+	    display: -webkit-flex; /* Safari */
+	    display: flex;
+	    align-items: flex-start;
+		padding-top: 2.5%;
+	}
+
+	#icon div:nth-of-type(1) {flex-grow: 2;}
+	#icon div:nth-of-type(2) {flex-grow: 1;}
+	#icon div:nth-of-type(3) {flex-grow: 1;}
+
+	html {
+		height: 100%;
+		
+		/*Image only BG fallback*/
+		/*background = gradient + image pattern combo*/
+		/*background-repeat: repeat, repeat;*/
+		background: 
+			linear-gradient(190deg, rgba(36, 17, 42, 1), rgba(111, 16, 69, 1), rgba(226, 123, 83, 1));
+		background-position: right bottom, left top;
+	}
+
+	body {
+		vertical-align:middle; 
+		font-family: montserrat, arial, verdana;
+		background: linear-gradient(rgba(196, 95, 0, 0.1), rgba(185, 99, 100, 0));
+		
+	}
+
+	/*form styles*/
+	.container {
+		margin: 0;
+	}
+
+	/*form styles*/
+	#msform {
+		text-align: center;
+		position: fixed;
+		top:0px;
+		left:0px;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		padding-top: 15%;
+	}
+
+	#msform ul{
+		width: 600px;
+		margin-left: -100px;
+		text-align: center;
+		position: relative;
+	}
+
+	#msform fieldset {
+		background: white;
+		width: 20%;
+		border: 10px none;
+		border-radius: 3px;
+		box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.7);
+		padding: 40px 30px;
+		box-sizing: border-box;
+	}
+	/*Hide all except first fieldset*/
+	#msform fieldset:not(:first-of-type) {
+		display: none;
+	}
+	/*inputs*/
+	#msform input, #msform textarea{
+		padding: 20px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		margin-bottom: 10px;
+		width: 100%;
+		box-sizing: border-box;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 13px;
+
+		background: linear-gradient(rgba(196, 95, 0, 0.1), rgba(185, 99, 100, 0));
+	}
+
+	#msform span{
+		padding: 15px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 13px;
+	}
+
+	#msform label{
+		padding: 10px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 13px;
+	}
+
+	/*buttons*/
+	#msform .action-button {
+		width: 100px;
+		background: rgb(93, 183, 213);
+		font-weight: bold;
+		color: white;
+		border: 0 none;
+		border-radius: 1px;
+		cursor: pointer;
+		padding: 10px 5px;
+		margin: 10px 5px;
+	}
+
+	#msform .action-button:hover, #msform .action-button:focus {
+		box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(93, 183, 213);
+	}
+	/*headings*/
+	.fs-title {
+		vertical-align:middle; 
+		font-size: 15px;
+		text-transform: uppercase;
+		color: #2C3E50;
+		margin-bottom: 10px;
+	}
+	.fs-subtitle {
+		font-weight: normal;
+		font-size: 13px;
+		color: #666;
+		margin-bottom: 20px;
+	}
+
+}
+
+
+/*custom font*/
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 736px)  {
+
+	/*basic reset*/
+	* {margin: 0; padding: 0;}
+
+	#icon {	    
+		width: 100%;
+	    height: 100%;
+	    display: -webkit-flex; /* Safari */
+	    display: flex;
+	    align-items: flex-start;
+		padding-top: 18%;
+	}
+
+	#icon div:nth-of-type(1) {flex-grow: 2;}
+	#icon div:nth-of-type(2) {flex-grow: 1;}
+	#icon div:nth-of-type(3) {flex-grow: 1;}
+
+	html {
+		height: 100%;
+		
+		/*Image only BG fallback*/
+		/*background = gradient + image pattern combo*/
+		/*background-repeat: repeat, repeat;*/
+		background: 
+			linear-gradient(190deg, rgba(36, 17, 42, 1), rgba(111, 16, 69, 1), rgba(226, 123, 83, 1));
+		background-position: right bottom, left top;
+	}
+
+	body {
+		vertical-align:middle; 
+		font-family: montserrat, arial, verdana;
+		background: linear-gradient(rgba(196, 95, 0, 0.1), rgba(185, 99, 100, 0));
+		
+	}
+
+	/*form styles*/
+	#msform {
+		text-align: center;
+		position: fixed;
+		top:0px;
+		left:0px;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		padding-top: 62%;
+	}
+	
+	#msform ul{
+		width: 600px;
+		margin-left: -100px;
+		text-align: center;
+		position: relative;
+	}
+
+	#msform fieldset {
+
+		background: white;
+		width: 100%;
+		border: 20px none;
+		border-radius: 15px;
+		box-shadow: 0 0 30px 1px rgba(0, 0, 0, 1);
+		padding: 50px 50px;
+		box-sizing: initial;
+	}
+	
+	/*inputs*/
+	#msform input, #msform textarea{
+		padding: 15px;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		margin-bottom: 30px;
+		margin-top: 30px;
+		width: 100%;
+		box-sizing: border-box;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 25px;
+
+		background: linear-gradient(rgba(196, 95, 0, 0.1), rgba(185, 99, 100, 0));
+	}
+
+	#msform span{
+		padding: 15px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 13px;
+	}
+
+	#msform label{
+		padding: 10px;
+		width: 100%;
+		font-family: montserrat;
+		color: #2C3E50;
+		font-size: 13px;
+	}
+
+	/*buttons*/
+	#msform .action-button {
+		width: 200px;
+		background: rgb(93, 183, 213);
+		font-weight: bold;
+		color: white;
+		border: 0 none;
+		border-radius: 1px;
+		cursor: pointer;
+		padding: 10px 5px;
+		margin: 10px 5px;
+		margin-top: 50px;
+		margin-bottom: 40px; 
+	}
+
+	#msform .action-button:hover, #msform .action-button:focus {
+		box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(93, 183, 213);
+	}
+	/*headings*/
+	.fs-title {
+		border-collapse: separate;
+		border-spacing: 10px 100px;
+		vertical-align:middle; 
+		font-size: 55px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: #2C3E50;
+		margin-bottom: 20px;
+		margin-left: 200px;
+		margin-right: 200px;
+		margin-top: 40px;
+	}
+	.fs-subtitle {
+		word-spacing: 8px;
+		display: inline-block;
+		font-weight: normal;
+		font-size: 30px;
+		color: #666;
+		margin-bottom: 50px;
+		margin-top: 25px;
+	}
+	.icon {
+		height: 250px;
+		width: 350px;
+		margin-bottom: 50px;
+	}
+}

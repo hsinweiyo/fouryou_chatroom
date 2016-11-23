@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>La Palette</title>
+
+    <!-- short icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+    <!-- siimple style -->
+    <link rel="stylesheet" href="{{ asset('ass/css/home.css') }}"  type= "text/css" />
+    <style type="text/css">
+        
+    </style>
+    <!-- =======================================================
+        Theme Name: WeBuild
+        Theme URL: https://bootstrapmade.com/free-bootstrap-coming-soon-template-countdwon/
+        Author: BootstrapMade
+        Author URL: https://bootstrapmade.com
+    ======================================================= -->
+  </head>
+
+<body>
+
+
+
+<div class="moving-zone">
+    <div class="popup">
+        <div class="popup-content">
+            <div class="popup-text">
+                La Palette
+            </div>
+        </div>
+    </div>
+</div>
+
+	<div id="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1><br></h1>
+					<h2 class="subtitle" font-size="20px">Beautiful things are worth waiting.</h2>
+					<div id="countdown"><br></div>
+					<div id="row">
+						<div class="col-md-12">
+							<h3 class="subtitle2">
+								days hours mins secs
+							</h3>
+						</div>
+					</div>
+                    <div class="social">
+                    	<a href="{{path('createpage')}}"><i class="fa fa-user-plus  fa-lg" aria-hidden="true"></i></a>
+                    	<a href="{{path('indexpage')}}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/La-Palette2016-Xmas-Party-364798687192806/" target="_blank"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                        <a href="{{path('loginpage')}}"><i class="fa fa-commenting-o fa-lg" aria-hidden="true"></i></a>
+                        <i class="fa fa-commenting-o fa-lg speaker" aria-hidden="true"></i>
+                        <audio id="player" >
+                            <source src="http://localhost:8000/fouryou/web/test.mp3" type="audio/mp3" />
+                        </audio>
+                    </div>
+				</div>
+				
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3">
+						<p class="copyright">© WeBuild - All Rights Reserved</p>
+                        <div class="credits">
+                        </div>
+				</div>
+			</div>		
+		</div>
+	</div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{{ asset('ass/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('ass/js/jquery.countdown.min.js') }}"></script>
+
+	<script type="text/javascript">
+      $('#countdown').countdown('2016/12/19 19:00:00', function(event) {
+        $(this).html(event.strftime('%D %H %M %S'));
+      });
+
+    /*var fiveSeconds = new Date().getTime() + 5000;
+        $('#countdown').countdown(fiveSeconds, {elapse: true})
+        .on('update.countdown', function(event) {
+          var $this = $(this);
+          if (event.elapsed) {
+            $this.html(event.strftime('After end: <span>%H:%M:%S</span>'));
+          } else {
+            $this.html(event.strftime('To end: <span>%H:%M:%S</span>'));
+          }
+        });*/
+    </script>
+
+    <script type="text/javascript">
+var moveForce = 30; // max popup movement in pixels
+var rotateForce = 20; // max popup rotation in deg
+
+$(document).mousemove(function(e) {
+    var docX = $(document).width();
+    var docY = $(document).height();
+    
+    var moveX = (e.pageX - docX/2) / (docX/2) * -moveForce;
+    var moveY = (e.pageY - docY/2) / (docY/2) * -moveForce;
+    
+    var rotateY = (e.pageX / docX * rotateForce*2) - rotateForce;
+    var rotateX = -((e.pageY / docY * rotateForce*2) - rotateForce);
+    
+    $('.popup')
+        .css('left', moveX+'px')
+        .css('top', moveY+'px')
+        .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
+});
+
+
+
+
+    </script>
+<script>
+   var getaudio = $('#player')[0];
+   /* Get the audio from the player (using the player's ID), the [0] is necessary */
+   var mouseovertimer;
+   /* Global variable for a timer. When the mouse is hovered over the speaker it will start playing after hovering for 1 second, if less than 1 second it won't play (incase you accidentally hover over the speaker) */
+   var audiostatus = 'off';
+   /* Global variable for the audio's status (off or on). It's a bit crude but it works for determining the status. */
+
+   $(document).on('mouseenter', '.speaker', function() {
+     /* Bonus feature, if the mouse hovers over the speaker image for more than 1 second the audio will start playing */
+     if (!mouseovertimer) {
+       mouseovertimer = window.setTimeout(function() {
+         mouseovertimer = null;
+         if (!$('.speaker').hasClass("speakerplay")) {
+           getaudio.load();
+           /* Loads the audio */
+           getaudio.play();
+           /* Play the audio (starting at the beginning of the track) */
+           $('.speaker').addClass('speakerplay');
+           return false;
+         }
+       }, 1000);
+     }
+   });
+
+   $(document).on('mouseleave', '.speaker', function() {
+     /* If the mouse stops hovering on the image (leaves the image) clear the timer, reset back to 0 */
+     if (mouseovertimer) {
+       window.clearTimeout(mouseovertimer);
+       mouseovertimer = null;
+     }
+   });
+
+   $(document).on('click touchend', '.speaker', function() {
+     /* Touchend is necessary for mobile devices, click alone won't work */
+     if (!$('.speaker').hasClass("speakerplay")) {
+       if (audiostatus == 'off') {
+         $('.speaker').addClass('speakerplay');
+         getaudio.load();
+         getaudio.play();
+         window.clearTimeout(mouseovertimer);
+         audiostatus = 'on';
+         return false;
+       } else if (audiostatus == 'on') {
+         $('.speaker').addClass('speakerplay');
+         getaudio.play()
+       }
+     } else if ($('.speaker').hasClass("speakerplay")) {
+       getaudio.pause();
+       $('.speaker').removeClass('speakerplay');
+       window.clearTimeout(mouseovertimer);
+       audiostatus = 'on';
+     }
+   });
+
+   $('#player').on('ended', function() {
+     $('.speaker').removeClass('speakerplay');
+     /*When the audio has finished playing, remove the class speakerplay*/
+     audiostatus = 'off';
+     /*Set the status back to off*/
+   });
+</script>
+    
+</body>
+
+
+</html>
